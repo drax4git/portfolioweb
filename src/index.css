@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #F5F2EB;
+    color: #111111;
+    overflow-x: hidden;
+  }
+
+  /* Custom Neo-Brutalist selection */
+  ::selection {
+    background-color: #C5FF4A;
+    color: #111111;
+  }
+
+  /* Custom retro scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F2EB;
+    border-left: 2px solid #111111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #111111;
+    border: 1px solid #C5FF4A;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8050F5;
+  }
+}
+
+@layer components {
+  /* Neo-brutalist button base */
+  .btn-neo {
+    @apply inline-flex items-center justify-center font-mono font-bold uppercase tracking-wider px-5 py-2.5 border-2 border-retro-black bg-white text-retro-black shadow-neo transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-neo-lg select-none cursor-pointer;
+  }
+
+  .btn-neo-lime {
+    @apply btn-neo bg-retro-lime text-retro-black hover:bg-[#b5f537];
+  }
+
+  .btn-neo-pink {
+    @apply btn-neo bg-retro-pink text-retro-black hover:bg-[#ff688f];
+  }
+
+  .btn-neo-purple {
+    @apply btn-neo bg-retro-purple text-white hover:bg-[#723ff0];
+  }
+
+  .btn-neo-yellow {
+    @apply btn-neo bg-retro-yellow text-retro-black hover:bg-[#ebd915];
+  }
+
+  .btn-neo-blue {
+    @apply btn-neo bg-retro-blue text-white hover:bg-[#0d46d4];
+  }
+
+  /* Neo-brutalist card base */
+  .card-neo {
+    @apply border-2 border-retro-black bg-white shadow-neo transition-all;
+  }
+
+  .card-neo-hover {
+    @apply card-neo hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg;
+  }
+
+  /* Neo-brutalist input */
+  .input-neo {
+    @apply w-full px-4 py-2.5 border-2 border-retro-black bg-white text-retro-black font-mono focus:outline-none focus:ring-0 focus:shadow-neo transition-shadow placeholder:text-gray-400;
+  }
+
+  /* Retro Badge / Sticker */
+  .badge-neo {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 border-2 border-retro-black text-xs font-mono font-bold uppercase shadow-neo-sm;
+  }
+
+  .badge-lime {
+    @apply badge-neo bg-retro-lime text-retro-black;
+  }
+
+  .badge-pink {
+    @apply badge-neo bg-retro-pink text-retro-black;
+  }
+
+  .badge-purple {
+    @apply badge-neo bg-retro-purple text-white;
+  }
+
+  .badge-yellow {
+    @apply badge-neo bg-retro-yellow text-retro-black;
+  }
+
+  /* Retro Notebook grid background */
+  .bg-grid-notebook {
+    background-color: #F5F2EB;
+    background-image: 
+      linear-gradient(to right, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 17, 17, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Dark Retro Grid */
+  .bg-grid-dark {
+    background-color: #111111;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Pixel dot pattern */
+  .bg-dots {
+    background-image: radial-gradient(#111111 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+  }
+
+  /* Scrapbook stamp effect */
+  .scrapbook-stamp {
+    @apply relative inline-block p-1 border-2 border-dashed border-retro-black rotate-[-2deg];
+  }
+
+  /* Retro Window header */
+  .retro-window-bar {
+    @apply flex items-center justify-between px-3 py-1.5 bg-retro-black text-white font-mono text-xs border-b-2 border-retro-black;
+  }
+}
+
+/* Retro Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-wiggle {
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
